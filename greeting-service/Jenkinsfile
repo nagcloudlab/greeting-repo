@@ -1,6 +1,11 @@
 pipeline {
     agent any
     stages {
+        stage('Checkout') {
+            steps {
+                 git branch: 'main', url: 'https://github.com/nagcloudlab/greeting-repo'
+            }
+        }
         stage('Compile') {
             steps {
                 bat '.\mvnw clean compile'
