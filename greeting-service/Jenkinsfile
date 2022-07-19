@@ -8,7 +8,9 @@ pipeline {
         }
         stage('Compile') {
             steps {
-                bat '.mvnw clean compile'
+             dir('greeting-service'){
+                bat '.\mvnw clean compile'
+             }
             }
         }
         stage('Unit-Testing') {
