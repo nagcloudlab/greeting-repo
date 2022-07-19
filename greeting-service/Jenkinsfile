@@ -1,19 +1,24 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Compile') {
             steps {
-                echo 'Building..'
+                bat './greeting-service/mvnw clean compile'
             }
         }
-        stage('Test') {
+        stage('Unit-Testing') {
             steps {
-                echo 'Testing..'
+                bat './greeting-service/mvnw test'
             }
         }
-        stage('Deploy') {
+        stage('Integration') {
             steps {
-                echo 'Deploying....'
+                echo 'Integration Testing'
+            }
+        }
+        stage('Package') {
+            steps {
+                echo './greeting-service/mvnw package'
             }
         }
     }
