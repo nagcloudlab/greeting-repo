@@ -8,12 +8,12 @@ pipeline {
         }
         stage('Compile') {
             steps {
-                bat '.\mvnw clean compile'
+                bat '.mvnw clean compile'
             }
         }
         stage('Unit-Testing') {
             steps {
-                bat '.\mvnw test'
+                bat '.mvnw test'
             }
         }
         stage('Integration') {
@@ -23,7 +23,7 @@ pipeline {
         }
         stage('Package') {
             steps {
-                echo '.\mvnw package'
+                echo '.mvnw package'
             }
         }
     }
