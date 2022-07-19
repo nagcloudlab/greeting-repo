@@ -3,12 +3,12 @@ pipeline {
     stages {
         stage('Compile') {
             steps {
-                bat './greeting-service/mvnw clean compile'
+                bat '.\mvnw clean compile'
             }
         }
         stage('Unit-Testing') {
             steps {
-                bat './greeting-service/mvnw test'
+                bat '.\mvnw test'
             }
         }
         stage('Integration') {
@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Package') {
             steps {
-                echo './greeting-service/mvnw package'
+                echo '.\mvnw package'
             }
         }
     }
