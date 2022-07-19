@@ -15,7 +15,9 @@ pipeline {
         }
         stage('Unit-Testing') {
             steps {
-                bat '.mvnw test'
+              dir('greeting-service'){
+                 bat '.\\mvnw test'
+              }
             }
         }
         stage('Integration') {
@@ -24,8 +26,10 @@ pipeline {
             }
         }
         stage('Package') {
-            steps {
-                echo '.mvnw package'
+             steps {
+              dir('greeting-service'){
+                 bat '.\\mvnw package'
+              }
             }
         }
     }
