@@ -10,10 +10,10 @@ public class GreetingController {
     @GetMapping(value = "/api/greet/{lang}")
     public String doGreet(@PathVariable String lang) {
         if (lang.equals("en")) {
-            return "Hello";
+            return "Vanakkam";
         }
         if (lang.equals("tn")) {
-            return "Vanakkam";
+            return "Hello";
         }
         return "Unknown language";
     }
