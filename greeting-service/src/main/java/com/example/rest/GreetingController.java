@@ -14,10 +14,7 @@ public class GreetingController {
         }
         if (lang.equals("tn")) {
             return "Vanakkam";
-        }
-        if (lang.equals("es")) {
-            return "Hola";
-        }
+
         return "Unknown language";
     }
 
