@@ -12,10 +12,10 @@ public class GreetingController {
     public ResponseEntity<?> doGreet(@PathVariable String lang) {
         String message="";
         if (lang.equals("en")) {
-            message="vanakkam";
+            message="hello";
         }
         if (lang.equals("tn")) {
-            message="hello";
+            message="vanakkam";
         }
         return ResponseEntity.ok(message);
     }

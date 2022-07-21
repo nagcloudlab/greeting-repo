@@ -9,6 +9,8 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.*;
 
+// TDD ( Test Driven Devlopment )
+
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 public class GreetingControllerTest {
 
@@ -26,6 +28,20 @@ public class GreetingControllerTest {
                 .isOk()
                 .expectBody(String.class)
                 .isEqualTo("hello");
+
+    }
+
+    @Test
+    public void tnGreet() {
+        client
+                .get()
+                .uri("/api/greet/tn")
+                .accept(MediaType.TEXT_PLAIN)
+                .exchange()
+                .expectStatus()
+                .isOk()
+                .expectBody(String.class)
+                .isEqualTo("vanakkam");
 
     }
 
