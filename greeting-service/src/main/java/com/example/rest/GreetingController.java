@@ -1,5 +1,6 @@
 package com.example.rest;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,14 +9,15 @@ import org.springframework.web.bind.annotation.RestController;
 public class GreetingController {
 
     @GetMapping(value = "/api/greet/{lang}")
-    public String doGreet(@PathVariable String lang) {
+    public ResponseEntity<?> doGreet(@PathVariable String lang) {
+        String message="";
         if (lang.equals("en")) {
-            return "Vanakkam";
+            message="vanakkam";
         }
         if (lang.equals("tn")) {
-            return "Hello";
+            message="hello";
         }
-        return "Unknown language";
+        return ResponseEntity.ok(message);
     }
 
 }
