@@ -1,0 +1,11 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  redisdb:
+    image: redis
+    volumes:
+      - .\redis_data:/data
+  greetingsvc:
+#    image: nagabhushanamn/greeting-service
+    build: .
+    ports:
+      - "8181:8181"
