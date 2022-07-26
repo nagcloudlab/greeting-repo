@@ -9,14 +9,14 @@ pipeline {
         stage('Compile') {
             steps {
              dir('greeting-service'){
-                bat '.\\mvnw clean compile'
+                bat 'mvnw clean compile'
              }
             }
         }
         stage('Unit-Testing') {
             steps {
               dir('greeting-service'){
-                 bat '.\\mvnw test'
+                 bat 'mvnw test'
               }
             }
         }
@@ -28,7 +28,7 @@ pipeline {
         stage('Package') {
              steps {
               dir('greeting-service'){
-                 bat '.\\mvnw package'
+                 bat 'mvnw package'
               }
             }
         }
