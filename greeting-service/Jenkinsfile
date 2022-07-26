@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+    	DOCKERHUB_CREDENTIALS=credentials('docker-hub-credentials')
+    }
     stages {
         stage('Checkout') {
             steps {
@@ -40,12 +43,23 @@ pipeline {
               }
             }
         }
-//         stage('DockerPush') {
-//              steps {
-//               dir('greeting-service'){
-//                  bat 'docker push nagabhushanamn/greeting-service'
-//               }
-//             }
-//         }
+        stage('Dockerhub Login') {
+            steps {
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+            }
+        }
+
+        stage('DockerPush') {
+             steps {
+              dir('greeting-service'){
+                 sh 'docker push nagabhushanamn/greeting-service'
+              }
+            }
+        }
+    }
+    post {
+        always {
+            sh 'docker logout'
+        }
     }
 }
