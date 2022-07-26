@@ -8,3 +8,7 @@ services:
     image: nagabhushanamn/greeting-service
     ports:
       - "8181:8181"
+  greetingui:
+    image: nagabhushanamn/greeting-ui
+    ports:
+      - "80:80"
