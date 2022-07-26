@@ -39,12 +39,12 @@ pipeline {
               }
             }
         }
-        stage('DockerPush') {
-             steps {
-              dir('greeting-service'){
-                 bat 'docker push nagabhushanamn/greeting-service'
-              }
-            }
-        }
+//         stage('DockerPush') {
+//              steps {
+//               dir('greeting-service'){
+//                  bat 'docker push nagabhushanamn/greeting-service'
+//               }
+//             }
+//         }
     }
 }
