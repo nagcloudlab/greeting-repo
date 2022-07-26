@@ -9,7 +9,7 @@ pipeline {
         stage('Compile') {
             steps {
              dir('greeting-service'){
-                sh 'sudo ./mvnw clean compile'
+                sh './mvnw.sh clean compile'
              }
             }
         }
